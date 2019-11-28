@@ -1,0 +1,176 @@
+<html>
+    <head>
+      <style>
+	   
+		  #dd button
+		  {
+			width:60;
+			margin:5 5;
+			display:inline-block;
+		  }
+		  #button
+		  {
+			border-radius:20%;
+			color:yellow;
+		  }
+		  #button:hover
+		  {
+		    background:orange;
+		  }
+		  img
+		  {
+		    height:350 px;
+			width:350 px;
+		    border:4px solid dodgerblue;
+			margin-left:360px;
+			margin-top:50px;
+		  }
+		  img:hover
+		  {
+		    height:400px;
+			width:400px;
+		  }
+		  #bold
+		  { 
+		    color:green;
+            margin-left:350px;		  
+		    font-size:27;
+		
+		  }
+		  #id1
+		  {
+		    margin-left:400px;
+			width:200;
+			height:30;
+			border:3px solid purple ;
+			margin-top:25px;
+			border-radius:25%;
+		  }
+		 button
+		 {
+		   border-radius:20%;
+		   color:yellow;
+		   height:50;
+		   width:80px;
+		   display:inline-block;
+		   
+		 }
+		 div,button
+		 {
+			margin:10 100;
+		 }
+		 button:hover
+		 {
+			background-color:yellowgreen;
+		 }
+      </style>
+	 </head>
+	<body>
+	
+		<b id="bold">Enter the number of characters : </b><br><input id="id1" type="text" placeholder="                 enter here">
+		  <input id="button" type="button" value="click here"> 
+              
+		 <br>
+		 <div id ="dd"></div>
+        <img id="img" src="E:\\l4\\alphabet\\hello.jpg">		 
+    		 
+<script>
+var t=new Array;
+var inp=document.getElementById('id1');
+var div=document.getElementById('dd');
+var butt=document.getElementById('button');
+var letterslist = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+var imgArray=new Array();
+   imgArray[0]='E:\\l4\\alphabet\\a.jpg';
+   imgArray[1]='E:\\l4\\alphabet\\b.jpg';
+   imgArray[2]='E:\\l4\\alphabet\\c.jpg'; 
+   imgArray[3]='E:\\l4\\alphabet\\d.jpg';
+   imgArray[4]='E:\\l4\\alphabet\\e.jpg'; 
+   imgArray[5]='E:\\l4\\alphabet\\f.jpg'; 
+   imgArray[6]='E:\\l4\\alphabet\\g.jpg';
+   imgArray[7]='E:\\l4\\alphabet\\h.jpg'; 
+   imgArray[8]='E:\\l4\\alphabet\\i.jpg';
+   imgArray[9]='E:\\l4\\alphabet\\j.jpg';
+   imgArray[10]='E:\\l4\\alphabet\\k.jpg';
+   imgArray[11]='E:\\l4\\alphabet\\l.jpg';
+   imgArray[12]='E:\\l4\\alphabet\\m.jpg';
+   imgArray[13]='E:\\l4\\alphabet\\n.jpg';
+   imgArray[14]='E:\\l4\\alphabet\\o.jpg';
+   imgArray[15]='E:\\l4\\alphabet\\p.jpg';
+   imgArray[16]='E:\\l4\\alphabet\\q.jpg';
+   imgArray[17]='E:\\l4\\alphabet\\r.jpg';
+   imgArray[18]='E:\\l4\\alphabet\\s.jpg';
+   imgArray[19]='E:\\l4\\alphabet\\t.jpg';
+   imgArray[20]='E:\\l4\\alphabet\\u.jpg';
+   imgArray[21]='E:\\l4\\alphabet\\v.jpg';
+   imgArray[22]='E:\\l4\\alphabet\\w.jpg';
+   imgArray[23]='E:\\l4\\alphabet\\x.jpg';
+   imgArray[24]='E:\\l4\\alphabet\\y.jpg';
+   imgArray[25]='E:\\l4\\alphabet\\z.jpg';
+ function getRandomStrings(numofchar) 
+	{
+	if(numofchar>0 && numofchar<=26)
+	{
+	  for (var i=0;i<numofchar;i++)
+	  { 
+		var a= letterslist[Math.floor(Math.random()*letterslist.length)];
+		while(t.indexOf(a)!=-1)
+		{
+			var a= letterslist[Math.floor(Math.random()*letterslist.length)];
+		}
+		t[i]=a;
+	  }  
+	  return t;	 
+	}
+	else
+	{
+	 alert("the number must be between (1 and 26)");
+	
+	}
+    }
+ butt.addEventListener('click',function()
+ {
+    div.innerHTML="";
+	var w = getRandomStrings(inp.value); 
+		for(var i=0;i<inp.value;i++)
+		{
+			var node =document.createElement("button");
+			var text =document.createTextNode(w[i]);
+			node.appendChild(text);
+			div.appendChild(node);
+			localStorage["generate"]=new Date();
+		}
+ });
+ 
+ 
+ 
+ div.addEventListener('click',function(e)
+ {
+    var charimage=document.getElementById('img');
+	charimage.src=imgArray[letterslist.indexOf(e.target.textContent)];
+	localStorage[e.target.textContent+" clicked"]=new Date();
+ });
+	  window.addEventListener("load",function()
+	  
+	  {
+	  
+	    localStorage["load"]=new Date();
+	  
+	  });
+	  window.addEventListener("unload",function()
+	  
+	  {
+	  
+	    localStorage["unload"]=new Date();
+	  
+	  });
+	
+      setTimeout(function()
+	  {
+	    localStorage.clear()
+	  } ,5000);
+	  
+	 
+</script>
+</body>
+</html>
