@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Project #1</title>
+    </head>
+    <body id="b">
+        <button id="asd">click</button>
+        
+    </body>
+    <script src="jquery3.2.1.min.js"></script>
+    <script>
+        var values = [];
+        
+        $(window).on("load",function(){
+        localStorage["name1"]="moeen";
+        localStorage["name2"]="ramy";
+        localStorage["name3"]="sandra";
+        });
+        $("#asd").on("click",function(){
+            allStorage();
+            $.ajax({
+                    type:"GET",
+					url:"q.php",
+                    data:{"val":""},
+					success:function(response){
+                        console.log("send successfully!");
+                        console.log(response);
+					}
+					
+            });
+            
+        });
+        function getboject(key,val)
+        {
+            k=key;
+            v=val;
+            var zxc={};
+            zxc[k]=v;
+            return zxc
+        };
+        
+         function allStorage() {
+                   keys = Object.keys(localStorage),
+                   i = keys.length;
+                    while ( i-- ) {
+                        values.push(getboject(keys[i],localStorage.getItem(keys[i])));
+                    }
+ 
+               };
+        
+        
+        
+//        var values = {};
+//         function allStorage() {
+//                   keys = Object.keys(localStorage),
+//                   i = keys.length;
+//                    
+//                    while ( i-- ) {
+//                        if(keys[i]=="name1")
+//                            {
+//                                
+//                                values.name1= localStorage.getItem(keys[i]);
+//                            }
+//                        if(keys[i]=="name2")
+//                            {
+//                                values.name2= localStorage.getItem(keys[i]);
+//                            }
+//                        if(keys[i]=="name3")
+//                            {
+//                                values.name3= localStorage.getItem(keys[i]);
+//                            }
+//                    }
+// 
+//               }    
+        
+        
+        
+        
+//        var values = [];
+//        var ob={};
+//         function allStorage() {
+//                   keys = Object.keys(localStorage),
+//                   i = keys.length;
+//                    while ( i-- ) {
+//                        values[keys[i]]=localStorage.getItem(keys[i]);
+//                    }
+// 
+//               };   
+            
+//        /*جيبنا الداتا من ال localstorage*/  
+        
+    </script>
+    
+    
+    
+    <script>
+          
+    </script>
+</html>
+
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</html>
